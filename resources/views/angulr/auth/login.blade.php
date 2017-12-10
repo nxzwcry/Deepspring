@@ -23,7 +23,7 @@
             </div>
         </div>
         <button type="submit" class="btn btn-lg btn-primary btn-block">
-            Log in
+            @lang('app.user.login')
         </button>
         <div class="text-center m-t m-b"><a href="{{ url('/password/reset') }}">Forgot password?</a></div>
 

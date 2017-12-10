@@ -47,7 +47,7 @@
 
 </div>
 
-<script src="{{url('locales/'.app_locale().'.js?'.substr(md5(json_encode(trans('app'))), -10))}}"></script>
+{{--<script src="{{url('locales/'.app_locale().'.js?'.substr(md5(json_encode(trans('app'))), -10))}}"></script>--}}
 <script src="{{url(smart_mix("assets/js/app.theme.js",'',false))}}"></script>
 @stack('pre_scripts')
 @stack('scripts')
