@@ -86,3 +86,17 @@ Route::group(['prefix' => 'locales'], function () {
     Route::get('/switch/{locale}', '\Someline\Support\Controllers\LocaleController@getSwitchLocale');
 
 });
+
+//test
+Route::get('/email', function(){
+    $data = [
+        'url'  => 'https://laravel.com',
+        'name' => 'laravel'
+    ];
+
+    Mail::send('emails.register', $data, function ($message) {
+        $message->from('test@push.deepspring.cn', 'Deepspring');
+        $message->to('cry@deepspring.cn');
+        $message->subject('Hello World');
+    });
+});

@@ -16,10 +16,12 @@
     ],
     "require": {
         "php": ">=7.0.0",
-        "fideloper/proxy": "~3.3",
         "dingo/api": "v1.0.0-beta9",
+        "fideloper/proxy": "~3.3",
         "rap2hpoutre/laravel-log-viewer": "^0.10.0",
-        "someline/starter-framework": "1.7.*"
+        "someline/starter-framework": "1.7.*",
+        "wang_yan/directmail": "dev-master",
+        "zizaco/entrust": "5.2.x-dev"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

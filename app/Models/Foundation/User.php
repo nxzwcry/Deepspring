@@ -6,9 +6,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use Someline\Image\Models\Traits\SomelineHasImageablesTrait;
 use Someline\Model\Foundation\User as BaseUser;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 class User extends BaseUser
 {
+    use EntrustUserTrait;
     use SomelineHasImageablesTrait;
 
     /**
