@@ -15,4 +15,5 @@ interface UserRepository extends BaseRepositoryInterface
      * @return $this
      */
     public function byUserIds($userIds);
+
 }

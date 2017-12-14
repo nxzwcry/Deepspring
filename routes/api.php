@@ -31,8 +31,30 @@ $api->version('v1', [
                 $api->post('/', 'UsersController@store');
                 $api->get('/me', 'UsersController@me');
                 $api->get('/{id}', 'UsersController@show');
-                $api->put('/{id}', 'UsersController@update');
-                $api->delete('/{id}', 'UsersController@destroy');
+
+                $api->group(['middleware' => ['permission:create-user']], function(Router $api) {
+                    $api->put('/{id}', 'UsersController@update');
+                    $api->delete('/{id}', 'UsersController@destroy');
+                });
+
+            });
+
+            // /Roles
+            $api->group(['prefix' => 'roles'], function (Router $api) {
+                $api->get('/', 'RolesController@index');
+                $api->post('/', 'RolesController@store');
+                $api->get('/{id}', 'RolesController@show');
+                $api->put('/{id}', 'RolesController@update');
+                $api->delete('/{id}', 'RolesController@destroy');
+            });
+
+            // /Permissions
+            $api->group(['prefix' => 'permissions'], function (Router $api) {
+                $api->get('/', 'PermissionsController@index');
+                $api->post('/', 'PermissionsController@store');
+                $api->get('/{id}', 'PermissionsController@show');
+                $api->put('/{id}', 'PermissionsController@update');
+                $api->delete('/{id}', 'PermissionsController@destroy');
             });
 
         });

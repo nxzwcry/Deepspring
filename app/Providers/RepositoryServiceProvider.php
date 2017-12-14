@@ -6,7 +6,9 @@ use Illuminate\Support\ServiceProvider;
 use Someline\Repositories\Eloquent\UserRepositoryEloquent;
 use Someline\Repositories\Interfaces\UserRepository;
 use Someline\Repositories\Eloquent\RoleRepositoryEloquent;
+use Someline\Repositories\Eloquent\PermissionRepositoryEloquent;
 use Someline\Repositories\Interfaces\RoleRepository;
+use Someline\Repositories\Interfaces\PermissionRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -29,7 +31,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(UserRepository::class, UserRepositoryEloquent::class);
         $this->app->bind(RoleRepository::class, RoleRepositoryEloquent::class);
-        $this->app->bind(\Someline\Repositories\Interfaces\PermissionRepository::class, \Someline\Repositories\Eloquent\PermissionRepositoryEloquent::class);
+        $this->app->bind(PermissionRepository::class, PermissionRepositoryEloquent::class);
         //:end-bindings:
     }
 }

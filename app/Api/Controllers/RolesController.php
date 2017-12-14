@@ -55,6 +55,7 @@ class RolesController extends BaseController
 
         $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
 
+
         $role = $this->repository->create($data);
 
         // throw exception if store failed
@@ -92,11 +93,14 @@ class RolesController extends BaseController
     public function update(RoleUpdateRequest $request, $id)
     {
 
-        $data = $request->all();
+        $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-        $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_UPDATE);
+        if ($request->has('permission_ids'))
+        {
+            $this->repository->setPermissions($request->input('permission_ids'), $id);
+        }
 
-        $role = $this->repository->update($data, $id);
+        $role = $this->repository->update($request->except(['permission_ids']), $id);
 
         // throw exception if update failed
 //        throw new UpdateResourceFailedException('Failed to update.');

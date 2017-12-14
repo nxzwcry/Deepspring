@@ -10,6 +10,8 @@ use Someline\Http\Requests\UserCreateRequest;
 use Someline\Http\Requests\UserUpdateRequest;
 use Someline\Repositories\Interfaces\UserRepository;
 use Someline\Validators\UserValidator;
+use Illuminate\Support\Facades\Auth;
+use Entrust;
 
 class UsersController extends BaseController
 {
@@ -107,9 +109,19 @@ class UsersController extends BaseController
     public function update(UserUpdateRequest $request, $id)
     {
 
+//        if (!($id == Auth::id() || Entrust::hasRole('admin')))
+//        {
+//            return UnauthorizedHttpException('没有更改权限');
+//        }
+
         $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-        $user = $this->repository->update($request->all(), $id);
+        if ($request->has('role_id'))
+        {
+            $this->repository->setRole($request->input('role_id'), $id);
+        }
+        $user = $this->repository->update($request->except(['role_id']), $id);
+//        $user = $this->repository->update($request->all(), $id);
 
         // throw exception if update failed
 //        throw new UpdateResourceFailedException('Failed to update.');
@@ -118,7 +130,6 @@ class UsersController extends BaseController
         return $this->response->noContent();
 
     }
-
 
     /**
      * Remove the specified resource from storage.

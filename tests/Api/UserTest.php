@@ -54,8 +54,9 @@ class UserTest extends BaseApiTestCase
     public function testUpdateUser()
     {
         $this->withOAuthTokenTypePassword();
-        $this->putApi('users/2', [
+        $this->putApi('users/5', [
             'name' => 'Harry Potter',
+            'role_id' => '2',
         ]);
         $this->printResponseData();
         $this->assertResponseNoContent();

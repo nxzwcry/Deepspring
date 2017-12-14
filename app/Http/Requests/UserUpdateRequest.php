@@ -3,6 +3,7 @@
 namespace Someline\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Entrust;
 
 class UserUpdateRequest extends FormRequest
 {
@@ -13,6 +14,10 @@ class UserUpdateRequest extends FormRequest
      */
     public function authorize()
     {
+//        if (Entrust::can('create-user'))
+//            return true;
+//        else
+//            return false;
         return true;
     }
 
