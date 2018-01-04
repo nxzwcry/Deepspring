@@ -43,8 +43,8 @@ class PermissionTest extends BaseApiTestCase
     {
         $this->withOAuthTokenTypePassword();
         $this->postApi('permissions', [
-            'name' => 'set-role',
-            'display_name' => '为用户设置角色',
+            'name' => 'test',
+            'display_name' => '测试权限',
         ]);
         $this->printResponseData();
         $this->assertResponseOk();

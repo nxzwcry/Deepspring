@@ -51,6 +51,21 @@ Route::group(['prefix' => 'm', 'namespace' => 'Mobile'], function () {
 
 });
 
+// Wechat Routes
+Route::group(['prefix' => 'wechat', 'namespace' => 'Wechat'], function () {
+
+    // Wechat App
+    Route::any('serve', 'WeChatController@serve');
+
+    // Protected Routes
+    Route::group(['middleware' => 'wechat.oauth'], function () {
+
+
+
+    });
+
+});
+
 // Console Routes
 Route::group(['prefix' => 'console', 'middleware' => 'auth', 'namespace' => 'Console'], function () {
 

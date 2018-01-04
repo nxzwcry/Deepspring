@@ -10,5 +10,5 @@ use Someline\Repositories\Interfaces\BaseRepositoryInterface;
  */
 interface RoleRepository extends BaseRepositoryInterface
 {
-    //
+    // 
 }

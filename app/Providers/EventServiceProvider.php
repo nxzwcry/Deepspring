@@ -4,6 +4,8 @@ namespace Someline\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Someline\Models\Foundation\Permission;
+use Someline\Observers\PermissionObserver;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -28,5 +30,6 @@ class EventServiceProvider extends ServiceProvider
         parent::boot();
 
         //
+        Permission::observe(new PermissionObserver);
     }
 }
