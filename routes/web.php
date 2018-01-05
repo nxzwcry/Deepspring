@@ -58,7 +58,7 @@ Route::group(['prefix' => 'wechat', 'namespace' => 'Wechat'], function () {
     Route::any('serve', 'WeChatController@serve');
 
     // Protected Routes
-    Route::group(['middleware' => 'wechat.oauth'], function () {
+    Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
 
 

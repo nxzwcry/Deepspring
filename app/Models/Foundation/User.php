@@ -7,6 +7,7 @@ use Laravel\Passport\HasApiTokens;
 use Someline\Image\Models\Traits\SomelineHasImageablesTrait;
 use Someline\Model\Foundation\User as BaseUser;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
+use Someline\Notifications\ResetPasswordNotification;
 
 class User extends BaseUser
 {
@@ -40,6 +41,17 @@ class User extends BaseUser
     {
         parent::onCreated();
 
+    }
+
+    /**
+     * 发送密码重置通知.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
     }
 
 }
