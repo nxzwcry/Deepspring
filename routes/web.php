@@ -25,10 +25,22 @@ Route::group(['middleware' => 'auth'], function () {
 //    });
 
     Route::get('/', 'ExampleController@getIndexExample');
+    Route::get('/', 'ExampleController@getIndexExample');
     Route::get('blank-example', 'ExampleController@getBlankExample');
     Route::get('desktop-example', 'ExampleController@getDesktopExample');
 
     Route::get('users', 'UserController@getUserList');
+
+});
+
+// Protected Routes
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+
+//    Route::get('/', function () {
+//        return redirect('users');
+//    });
+
+    Route::get('/', 'admin\HomeController@getHomeExample');
 
 });
 

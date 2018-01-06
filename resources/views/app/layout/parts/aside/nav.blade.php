@@ -50,6 +50,44 @@
                     <i class="fa fa-fw fa-angle-right text"></i>
                     <i class="fa fa-fw fa-angle-down text-active"></i>
                   </span>
+                {{--<b class="badge bg-info pull-right"></b>--}}
+                <i class="icon-user fa-fw"></i>
+                <span>用户管理</span>
+            </a>
+            <ul class="nav nav-sub dk">
+                <li class="nav-sub-header">
+                    <a href>
+                        <span>用户管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>新增用户</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>用户管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>角色管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>权限管理</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href class="auto">
+                  <span class="pull-right text-muted">
+                    <i class="fa fa-fw fa-angle-right text"></i>
+                    <i class="fa fa-fw fa-angle-down text-active"></i>
+                  </span>
                 <b class="badge bg-info pull-right">3</b>
                 <i class="glyphicon glyphicon-th"></i>
                 <span>Layout</span>

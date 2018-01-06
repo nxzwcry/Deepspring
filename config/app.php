@@ -22,7 +22,7 @@ return [
     |
     */
 
-    'title' => 'Deepspring',
+    'title' => env('APP_TITLE', 'Deepspring'),
 
     'keywords' => '',
 

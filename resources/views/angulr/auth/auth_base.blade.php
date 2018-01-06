@@ -4,8 +4,8 @@
 
 @section('app')
     <div class="container w-xxl w-auto-xs">
-        <a href="https://www.someline.com" class="navbar-brand block m-t">
-            <img src="https://www.someline.com/images/logo/someline-logo-brand@2x.png" style="max-height: 29px" alt="Someline"
+        <a href="{{ config('app.url') }}" class="navbar-brand block m-t">
+            <img src="{{ asset('img/logo400.png') }}" style="max-height: 29px" alt="Someline"
                  title="Someline">
         </a>
         <div class="m-b-lg">

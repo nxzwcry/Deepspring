@@ -8,9 +8,9 @@
     </button>
     <!-- brand -->
     <a href="{{url('')}}" class="navbar-brand text-lt">
-        <img src="https://www.someline.com/images/logo/someline-icon-64.png" alt=".">
+        {{--<img src="https://www.someline.com/images/logo/someline-icon-64.png" alt=".">--}}
         <span class="hidden-folded m-l-xs">
-            <img src="https://www.someline.com/images/logo/someline-logo@2x.png" style="max-height: 18px" alt=".">
+            <img src="{{ asset('img/title200.png') }}" style="max-height: 32px" alt=".">
         </span>
     </a>
     <!-- / brand -->

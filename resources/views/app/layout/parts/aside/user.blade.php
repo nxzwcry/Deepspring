@@ -3,13 +3,14 @@
     <div class="dropdown wrapper">
         <a href="app.page.profile">
                 <span class="thumb-lg w-auto-folded avatar m-t-sm">
-                  <img src="https://www.someline.com/en/user/profilephoto/origin/f4ccc4de78c03fe2c321490cf6f8157f825e4c4f.jpg" class="img-full" alt="...">
+                  {{--<img src="https://www.someline.com/en/user/profilephoto/origin/f4ccc4de78c03fe2c321490cf6f8157f825e4c4f.jpg" class="img-full" alt="...">--}}
+                    照片
                 </span>
         </a>
         <a href="#" data-toggle="dropdown" class="dropdown-toggle hidden-folded">
                 <span class="clear">
                   <span class="block m-t-sm">
-                    <strong class="font-bold text-lt">John.Smith</strong>
+                    <strong class="font-bold text-lt">{{auth_user()->name}}</strong>
                     <b class="caret"></b>
                   </span>
                   <span class="text-muted text-xs block">Art Director</span>

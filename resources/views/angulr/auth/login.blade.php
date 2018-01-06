@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="wrapper text-center">
-        <strong>Sign in to get in touch</strong>
+        {{--<strong>Sign in to get in touch</strong>--}}
     </div>
     <form name="form" class="form-horizontal form-validation" role="form" method="POST" action="{{ url('/login') }}">
         {!! csrf_field() !!}
@@ -29,9 +29,10 @@
 
         <div class="wrapper"></div>
         <div class="line line-dashed"></div>
-        <p class="text-center">
-            <small>Do not have an account?</small>
-        </p>
-        <a href="{{ url('/register') }}" class="btn btn-lg btn-default btn-block">Create an account</a>
+        {{--<p class="text-center">--}}
+            {{--<small>Do not have an account?</small>--}}
+        {{--</p>--}}
+        {{--<a href="{{ url('/register') }}" class="btn btn-lg btn-default btn-block">Create an account</a>--}}
+
     </form>
 @endsection
