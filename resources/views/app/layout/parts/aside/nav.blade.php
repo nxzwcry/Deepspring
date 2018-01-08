@@ -61,7 +61,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ url('admin/register') }}">
                         <span>新增用户</span>
                     </a>
                 </li>

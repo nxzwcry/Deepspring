@@ -2,6 +2,7 @@
 
 namespace Someline\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use Someline\Http\Controllers\BaseController;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -25,7 +26,7 @@ class LoginController extends BaseController
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new controller instance.

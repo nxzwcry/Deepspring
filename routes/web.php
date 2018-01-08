@@ -12,7 +12,39 @@
 */
 
 // Auth Routes
-Auth::routes();
+//Auth::routes();
+
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+//$this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+//$this->post('register', 'Auth\RegisterController@register');
+
+// Password Reset Routes...
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
+
+
+// Protected Routes
+Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin'], function () {
+
+//    Route::get('/', function () {
+//        return redirect('users');
+//    });
+
+    // 首页
+    Route::get('/', 'HomeController@getHomeExample');
+    // 新增用户页面
+    Route::get('register', 'UserRegisterController@showRegistrationForm')->name('register');
+    Route::post('register', 'UserRegisterController@register');
+
+});
+
 
 // Basic Routes
 //Route::get('/home', 'HomeController@index');
@@ -33,16 +65,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
-// Protected Routes
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-
-//    Route::get('/', function () {
-//        return redirect('users');
-//    });
-
-    Route::get('/', 'admin\HomeController@getHomeExample');
-
-});
 
 // Mobile Routes
 Route::group(['prefix' => 'm', 'namespace' => 'Mobile'], function () {

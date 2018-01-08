@@ -1,13 +1,16 @@
 <?php
 
-namespace Someline\Http\Controllers\Auth;
+namespace Someline\Http\Controllers\Admin;
 
 use Someline\Models\Foundation\User;
 use Validator;
 use Someline\Http\Controllers\BaseController;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
-class RegisterController extends BaseController
+class UserRegisterController extends BaseController
 {
     /*
     |--------------------------------------------------------------------------
@@ -21,13 +24,14 @@ class RegisterController extends BaseController
     */
 
     use RegistersUsers;
+    use SendsPasswordResetEmails;
 
     /**
      * Where to redirect users after registration.
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new controller instance.
@@ -50,7 +54,7 @@ class RegisterController extends BaseController
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+//            'password' => 'required|min:6|confirmed',
         ]);
     }
 
@@ -62,11 +66,32 @@ class RegisterController extends BaseController
      */
     protected function create(array $data)
     {
+        $password = 'password' . rand(100000, 999999);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+//            'password' => bcrypt($data['password']),
+            'password' => bcrypt($password),
         ]);
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+//        $this->guard()->login($user);
+
+        $this->sendResetLinkEmail($request);
+
+        return view('app.admin.user.after_register');;
     }
 
     /**
@@ -76,7 +101,7 @@ class RegisterController extends BaseController
      */
     public function showRegistrationForm()
     {
-        return view('angulr.auth.register');
+        return view('app.admin.user.register');
     }
 
 }
