@@ -42,6 +42,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin
     // 新增用户页面
     Route::get('register', 'UserRegisterController@showRegistrationForm')->name('register');
     Route::post('register', 'UserRegisterController@register');
+    Route::get('users', 'UserController@getUserList');
+    Route::get('roles', 'UserController@getRoleList');
 
 });
 

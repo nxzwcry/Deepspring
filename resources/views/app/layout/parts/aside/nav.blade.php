@@ -66,18 +66,23 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ url('admin/users') }}">
                         <span>用户管理</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ url('admin/roles') }}">
                         <span>角色管理</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <span>权限管理</span>
+                    <a href="{{ url('admin/create_role') }}">
+                        <span>创建角色</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('admin/create_permission') }}">
+                        <span>创建权限</span>
                     </a>
                 </li>
             </ul>

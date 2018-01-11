@@ -1,4 +1,4 @@
-<style scoped>
+<style scoped xmlns="http://www.w3.org/1999/html">
 </style>
 
 <template>
@@ -7,8 +7,9 @@
             <img src="https://www.someline.com/en/user/profilephoto/origin/f4ccc4de78c03fe2c321490cf6f8157f825e4c4f.jpg"
                  alt="...">
         </span>
-        <span class="clear">
-            <span>{{ item.name }}</span>
+        <br class="clear">
+            <span>{{ item.name }}</span></br>
+            <span v-if="cteacher()">Teacher:{{ item.ename }}</span>
             <!--<pre>{{ item }}</pre>-->
         </span>
     </a>
@@ -32,6 +33,17 @@
         },
         watch: {},
         events: {},
-        methods: {},
+        methods: {
+            cteacher()
+            {
+                if (this.item.cteacher != null)
+                {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+        },
     }
 </script>

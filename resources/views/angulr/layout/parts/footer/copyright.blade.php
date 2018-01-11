@@ -3,4 +3,6 @@
     <a href="{{ url('locales/switch/'.$locale.'?redirect_url='.current_full_url()) }}">{{ $supportedLocale['native'] }}</a> &nbsp;
 @endforeach
 <br>
-Copyright © {{date('Y')}} Deepspring.  All rights reserved.
+Copyright © {{date('Y')}}&emsp;宁ICP备17001537号-1
+<br>
+宁夏深泉教育科技有限公司

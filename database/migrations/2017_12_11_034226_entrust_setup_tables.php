@@ -23,8 +23,8 @@ class EntrustSetupTables extends Migration
             $table->ipAddress('created_ip')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->ipAddress('updated_ip')->nullable();
-            $table->unsignedInteger('delete_by')->nullable();
-            $table->timestamp('delete_at')->nullable();
+            $table->unsignedInteger('deleted_by')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
 
         // Create table for associating roles to users (Many-to-Many)
@@ -41,8 +41,8 @@ class EntrustSetupTables extends Migration
             $table->ipAddress('created_ip')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->ipAddress('updated_ip')->nullable();
-            $table->unsignedInteger('delete_by')->nullable();
-            $table->timestamp('delete_at')->nullable();
+            $table->unsignedInteger('deleted_by')->nullable();
+            $table->timestamp('deleted_at')->nullable();
 
             $table->primary(['user_id', 'role_id']);
         });
@@ -59,8 +59,8 @@ class EntrustSetupTables extends Migration
             $table->ipAddress('created_ip')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->ipAddress('updated_ip')->nullable();
-            $table->unsignedInteger('delete_by')->nullable();
-            $table->timestamp('delete_at')->nullable();
+            $table->unsignedInteger('deleted_by')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
 
         // Create table for associating permissions to roles (Many-to-Many)
@@ -77,8 +77,8 @@ class EntrustSetupTables extends Migration
             $table->ipAddress('created_ip')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->ipAddress('updated_ip')->nullable();
-            $table->unsignedInteger('delete_by')->nullable();
-            $table->timestamp('delete_at')->nullable();
+            $table->unsignedInteger('deleted_by')->nullable();
+            $table->timestamp('deleted_at')->nullable();
 
             $table->primary(['permission_id', 'role_id']);
         });

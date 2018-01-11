@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="wrapper text-center">
-        {{--<strong>Sign in to get in touch</strong>--}}
+        <strong>深泉教育后台管理系统</strong>
     </div>
     <form name="form" class="form-horizontal form-validation" role="form" method="POST" action="{{ url('/login') }}">
         {!! csrf_field() !!}

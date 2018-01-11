@@ -80,4 +80,5 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         return $this;
 //        dd($roles);
     }
+
 }

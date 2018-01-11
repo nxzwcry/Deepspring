@@ -13,7 +13,7 @@ class Permission extends EntrustPermission implements Transformable
     protected $primaryKey = 'id';
 
     protected $guarded = [
-        'update_at', 'update_by', 'delete_by', 'delete_at',
+        'updated_at', 'updated_by', 'deleted_by', 'deleted_at',
     ];
 
     // Fields to be converted to Carbon object automatically

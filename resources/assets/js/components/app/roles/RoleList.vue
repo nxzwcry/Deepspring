@@ -9,15 +9,20 @@
         <hr>
 
         <div class="row">
-
-            <div class="list-group list-group-lg list-group-sp">
-                <template v-for="item of items">
-                    <div class="col-md-12 m-b-sm">
-                        <sl-user-list-item :item="item"></sl-user-list-item>
-                    </div>
-                </template>
+            <div class="col-lg-6">
+                <!-- accordion -->
+                <div ng-controller="AccordionDemoCtrl" class="ng-scope">
+                    <accordion close-others="oneAtATime">
+                        <div class="panel-group" ng-transclude="">
+                            <template v-for="item of items">
+                                <div class="col-md-12 m-b-sm">
+                                    <sl-role-list-item :item="item"></sl-role-list-item>
+                                </div>
+                            </template>
+                        </div>
+                    </accordion>
+                </div>
             </div>
-
         </div>
 
     </div>
@@ -35,7 +40,7 @@
         },
         computed: {},
         components: {
-            'sl-user-list-item': require('./UserListGroupItem.vue'),
+            'sl-role-list-item': require('./RoleListGroupItem.vue'),
         },
         mounted(){
             console.log('Component Ready.');
@@ -47,7 +52,7 @@
         methods: {
             fetchData(){
 
-                this.$api.get('/users', {
+                this.$api.get('/roles', {
                     params: {
 //                        include: ''
                     }

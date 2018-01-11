@@ -19,15 +19,22 @@ class UserTransformer extends BaseTransformer
      */
     public function transform(User $model)
     {
+        $cteacher = null;
+        $ename = null;
+        if ($model->cteacher)
+        {
+            $cteacher = $model->cteacher->cteacher_id;
+            $ename = $model->cteacher->ename;
+        }
         return [
             'user_id' => (int)$model->getUserId(),
 
             /* place your other model properties here */
             'name' => $model->name,
             'email' => $model->email,
-
-            'created_at' => (string)$model->created_at,
-            'updated_at' => (string)$model->updated_at
+            'cteacher' => $cteacher,
+            'ename' => $ename,
+            'roles' => $model->roles()->get(['id', 'display_name']),
         ];
     }
 }

@@ -25,9 +25,8 @@ class RoleTransformer extends BaseTransformer
             /* place your other model properties here */
             'name' => $model->name,
             'display_name' => $model->display_name,
-
-            'created_at' => (string) $model->created_at,
-            'updated_at' => (string) $model->updated_at
+            'permissions' => $model->permissons()->get(['id', 'display_name']),
+            'description' => $model->description,
         ];
     }
 }

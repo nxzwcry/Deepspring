@@ -54,4 +54,12 @@ class User extends BaseUser
         $this->notify(new ResetPasswordNotification($token));
     }
 
+    /**
+     * 获取中教老师信息
+     */
+    public function cteacher()
+    {
+        return $this->hasOne('Someline\Models\User\Cteacher', 'user_id');
+    }
+
 }

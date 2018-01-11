@@ -14,6 +14,7 @@ require('./bootstrap');
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('sl-user-list', require('./components/app/users/UserList.vue'));
+Vue.component('sl-role-list', require('./components/app/roles/RoleList.vue'));
 
 // Vuex
 // import Vuex from 'vuex'
