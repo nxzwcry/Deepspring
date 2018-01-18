@@ -16,8 +16,8 @@ class PermissionObserver {
     {
         // I want to create the $book book, but first...
 
-        $admin = Role::where('name', 'admin')->first();
-        $admin->attachPermission($permission);
+//        $admin = Role::where('name', 'admin')->first();
+//        $admin->attachPermission($permission);
 
     }
 

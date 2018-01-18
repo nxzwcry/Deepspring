@@ -14,10 +14,11 @@ class UserCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        if (Entrust::can('create-user'))
-            return true;
-        else
-            return false;
+//        if (Entrust::can('create-user'))
+//            return true;
+//        else
+//            return false;
+        return true;
     }
 
     /**
