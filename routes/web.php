@@ -31,21 +31,21 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
 // Protected Routes
-Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin'], function () {
-
-//    Route::get('/', function () {
-//        return redirect('users');
-//    });
-
-    // 首页
-    Route::get('/', 'HomeController@getHomeExample');
-    // 新增用户页面
-    Route::get('register', 'UserRegisterController@showRegistrationForm')->name('register');
-    Route::post('register', 'UserRegisterController@register');
-    Route::get('users', 'UserController@getUserList');
-    Route::get('roles', 'UserController@getRoleList');
-
-});
+//Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin'], function () {
+//
+////    Route::get('/', function () {
+////        return redirect('users');
+////    });
+//
+//    // 首页
+//    Route::get('/', 'HomeController@getHomeExample');
+//    // 新增用户页面
+//    Route::get('register', 'UserRegisterController@showRegistrationForm')->name('register');
+//    Route::post('register', 'UserRegisterController@register');
+//    Route::get('users', 'UserController@getUserList');
+//    Route::get('roles', 'UserController@getRoleList');
+//
+//});
 
 
 // Basic Routes
